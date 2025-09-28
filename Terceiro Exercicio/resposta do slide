@@ -1,0 +1,3 @@
+1. Para a funcionalidade "Desfazer" (Ctrl+Z): Usaria uma Pilha porque segue o padrão LIFO (Last In, First Out) - a última ação é a primeira a ser desfeita.
+
+2. Para o sistema de exames do hospital: Usaria uma Pilha porque os exames precisam ser impressos em ordem inversa (último para primeiro).
