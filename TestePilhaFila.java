@@ -1,36 +1,63 @@
 public class TestePilhaFila {
     public static void main(String[] args) {
-        // Testando a Pilha
-        System.out.println("=== TESTANDO PILHA ===");
-        PilhaLinkedList<Integer> pilha = new PilhaLinkedList<>();
+        System.out.println("=== TESTE DA PILHA ===");
+        testePilha();
 
-        // Empilhando elementos
-        pilha.empilhar(10);
-        pilha.empilhar(20);
-        pilha.empilhar(30);
+        System.out.println("\n=== TESTE DA FILA ===");
+        testeFila();
 
-        System.out.println("Elemento no topo: " + pilha.topo());
-        System.out.println("Tamanho da pilha: " + pilha.tamanho());
+        System.out.println("\n=== TESTE DO EDITOR DE TEXTO ===");
+        testeEditorTexto();
+    }
 
-        // Desempilhando elementos
+    public static void testePilha() {
+        PilhaLinkedList<String> pilha = new PilhaLinkedList<>();
+
+        pilha.empilhar("Primeiro");
+        pilha.empilhar("Segundo");
+        pilha.empilhar("Terceiro");
+
+        System.out.println("Pilha após empilhar: " + pilha);
+        System.out.println("Topo da pilha: " + pilha.topo());
+
         System.out.println("Desempilhando: " + pilha.desempilhar());
         System.out.println("Desempilhando: " + pilha.desempilhar());
-        System.out.println("Tamanho da pilha: " + pilha.tamanho());
 
-        System.out.println("\n=== TESTANDO FILA ===");
-        FilaLinkedList<String> fila = new FilaLinkedList<>();
+        System.out.println("Pilha final: " + pilha);
+        System.out.println("Está vazia? " + pilha.estaVazia());
+    }
 
-        // Enfileirando elementos
-        fila.enfileirar("Primeiro");
-        fila.enfileirar("Segundo");
-        fila.enfileirar("Terceiro");
+    public static void testeFila() {
+        FilaLinkedList<Integer> fila = new FilaLinkedList<>();
 
+        fila.enfileirar(1);
+        fila.enfileirar(2);
+        fila.enfileirar(3);
+
+        System.out.println("Fila após enfileirar: " + fila);
         System.out.println("Primeiro da fila: " + fila.primeiro());
-        System.out.println("Tamanho da fila: " + fila.tamanho());
 
-        // Desenfileirando elementos
         System.out.println("Desenfileirando: " + fila.desenfileirar());
         System.out.println("Desenfileirando: " + fila.desenfileirar());
-        System.out.println("Tamanho da fila: " + fila.tamanho());
+
+        System.out.println("Fila final: " + fila);
+        System.out.println("Tamanho: " + fila.tamanho());
+    }
+
+    public static void testeEditorTexto() {
+        EditorTexto editor = new EditorTexto();
+
+        editor.adicionarTexto("Olá ");
+        editor.adicionarTexto("mundo");
+        editor.adicionarTexto("!");
+
+        System.out.println("\n--- Testando Ctrl+Z ---");
+        editor.desfazer();
+        editor.desfazer();
+
+        editor.adicionarTexto("Java");
+        editor.desfazer();
+
+        System.out.println("\nTexto final: '" + editor.getTexto() + "'");
     }
 }

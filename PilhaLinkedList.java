@@ -1,35 +1,41 @@
 import java.util.LinkedList;
+import java.util.EmptyStackException;
 
 public class PilhaLinkedList<T> {
-    private LinkedList<T> lista;
+    private LinkedList<T> pilha;
 
     public PilhaLinkedList() {
-        this.lista = new LinkedList<>();
+        this.pilha = new LinkedList<>();
     }
 
     public void empilhar(T elemento) {
-        lista.addFirst(elemento);
+        pilha.addFirst(elemento);
     }
 
     public T desempilhar() {
-        if (lista.isEmpty()) {
-            throw new RuntimeException("Pilha vazia!");
+        if (pilha.isEmpty()) {
+            throw new EmptyStackException();
         }
-        return lista.removeFirst();
-    }
-
-    public boolean isEmpty() {
-        return lista.isEmpty();
+        return pilha.removeFirst();
     }
 
     public T topo() {
-        if (lista.isEmpty()) {
-            throw new RuntimeException("Pilha vazia!");
+        if (pilha.isEmpty()) {
+            throw new EmptyStackException();
         }
-        return lista.getFirst();
+        return pilha.getFirst();
+    }
+
+    public boolean estaVazia() {
+        return pilha.isEmpty();
     }
 
     public int tamanho() {
-        return lista.size();
+        return pilha.size();
+    }
+
+    @Override
+    public String toString() {
+        return "Pilha: " + pilha.toString();
     }
 }

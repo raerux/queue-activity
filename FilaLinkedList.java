@@ -1,35 +1,41 @@
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 public class FilaLinkedList<T> {
-    private LinkedList<T> lista;
+    private LinkedList<T> fila;
 
     public FilaLinkedList() {
-        this.lista = new LinkedList<>();
+        this.fila = new LinkedList<>();
     }
 
     public void enfileirar(T elemento) {
-        lista.addLast(elemento);
+        fila.addLast(elemento);
     }
 
     public T desenfileirar() {
-        if (lista.isEmpty()) {
-            throw new RuntimeException("Fila vazia!");
+        if (fila.isEmpty()) {
+            throw new NoSuchElementException("Fila vazia");
         }
-        return lista.removeFirst();
-    }
-
-    public boolean isEmpty() {
-        return lista.isEmpty();
+        return fila.removeFirst();
     }
 
     public T primeiro() {
-        if (lista.isEmpty()) {
-            throw new RuntimeException("Fila vazia!");
+        if (fila.isEmpty()) {
+            throw new NoSuchElementException("Fila vazia");
         }
-        return lista.getFirst();
+        return fila.getFirst();
+    }
+
+    public boolean estaVazia() {
+        return fila.isEmpty();
     }
 
     public int tamanho() {
-        return lista.size();
+        return fila.size();
+    }
+
+    @Override
+    public String toString() {
+        return "Fila: " + fila.toString();
     }
 }
